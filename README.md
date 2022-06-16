@@ -12,6 +12,5 @@ $$
     s(a_{ij}, o_{qi}) = \begin{cases}
     1 - \mathrm{NL}(a_{ij}, o_{qi}), & \text{if } \mathrm{NL}(a_{ij}, o_{qi}) \lt \tau \\
     0,                               & \text{if } \mathrm{NL}(a_{ij}, o_{qi}) \ge \tau
-    
     \end{cases}
 $$
