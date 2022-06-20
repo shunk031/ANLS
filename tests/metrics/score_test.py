@@ -1,6 +1,6 @@
 import pytest
 from anls import anls_score
-from anls.dist import normalized_levenshtein_distance as NL
+from anls.metrics.dist import normalized_levenshtein_distance as NL
 
 
 @pytest.mark.parametrize(

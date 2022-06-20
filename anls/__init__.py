@@ -1,1 +1,1 @@
-from anls.score import anls_score  # NOQA
+from anls.metrics import anls_score  # NOQA
