@@ -1,7 +1,9 @@
 # ANLS: Average Normalized Levenshtein Similarity
 
 [![CI](https://github.com/shunk031/ANLS/actions/workflows/ci.yaml/badge.svg)](https://github.com/shunk031/ANLS/actions/workflows/ci.yaml)
+[![Release](https://github.com/shunk031/ANLS/actions/workflows/release.yaml/badge.svg)](https://github.com/shunk031/ANLS/actions/workflows/release.yaml)
 ![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9-blue?logo=python)
+[![PyPI](https://img.shields.io/pypi/v/anls.svg)](https://pypi.python.org/pypi/anls)
 
 This python script is based on the one provided by [the Robust Reading Competition](https://rrc.cvc.uab.es/?com=introduction#) for evaluation of the InfographicVQA task.
 
@@ -42,6 +44,14 @@ The ANLS metric is not case sensitive, but space sensitive. For example:
 | Cat                   | $a_{i1} = 0.22$, $a_{i2} = 0.12$ | 0.00          |
 
 ## Installation
+
+- From pypi
+
+```shell
+pip install anls
+```
+
+- From GitHub
 
 ```shell
 pip install git+https://github.com/shunk031/ANLS
