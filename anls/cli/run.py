@@ -5,11 +5,7 @@ from typing import Optional
 
 from anls.cli.args import parse_args
 from anls.common.util import save_json
-from anls.evaluation import (
-    display_results,
-    evaluate_json_from_files,
-    validate_data_from_files,
-)
+from anls.evaluation import display_results, evaluate_json, validate_data
 
 if os.environ.get("ANLS_DEBUG"):
     LEVEL = logging.DEBUG
@@ -31,16 +27,26 @@ def evaluate_json_from_args(
     results_json: str = "results.json",
 ) -> None:
 
-    # Validate the format of ground truth and submission files.
-    validate_data_from_files(
-        gold_label_file_path=gold_label_file,
-        submission_file_path=submission_file,
+    if answer_types:
+        raise NotImplementedError(
+            "The Ground truth file requires ANLS breakdown information by type, "
+            "but unfortunately such information is not publicly available as of March 25th."
+        )
+
+    from anls.common.util import load_gold_label_json, load_submission_json
+
+    gold_label_json = load_gold_label_json(gold_label_file)
+    submission_json = load_submission_json(submission_file)
+
+    validate_data(
+        gold_label_json=gold_label_json,
+        submission_json=submission_json,
     )
 
     # Evaluate method
-    results = evaluate_json_from_files(
-        gold_label_file_path=gold_label_file,
-        submission_file_path=submission_file,
+    results = evaluate_json(
+        gold_label_json=gold_label_json,
+        submission_json=submission_json,
         show_scores_per_answer_type=answer_types,
         anls_threshold=anls_threshold,
     )
