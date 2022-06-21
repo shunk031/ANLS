@@ -25,6 +25,7 @@ The ANLS metric is not case sensitive, but space sensitive. For example:
 
 ![Coca-Cola_example.jpg](https://rrc.cvc.uab.es/files/Coca-Cola_example.jpg)
 > Q: What soft drink company name is on the red disk?
+>
 > Possible answers:
 > - $a_{i1}$: Coca Cola
 > - $a_{i2}$: Coca Cola Company
