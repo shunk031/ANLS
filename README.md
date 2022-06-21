@@ -14,7 +14,9 @@ More formally, the ANLS between the net output and the ground *truth answers is 
 $$
     \mathrm{ANLS} = \frac{1}{N} \sum_{i=0}^{N} \left(\max_{j} s(a_{ij}, o_{qi}) \right),
 $$
+
 where $s(\cdot, \cdot)$ is defined as follows:
+
 $$
     s(a_{ij}, o_{qi}) = \begin{cases}
     1 - \mathrm{NL}(a_{ij}, o_{qi}), & \text{if } \mathrm{NL}(a_{ij}, o_{qi}) \lt \tau \\
