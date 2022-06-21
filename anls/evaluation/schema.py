@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Dict, List
 
 try:
-    from typing import TypedDict
+    from typing import TypedDict  # type: ignore
 except ImportError:
     from typing_extensions import TypedDict
 
