@@ -1,8 +1,12 @@
 [tool.poetry]
 name = "anls"
-version = "0.1.0"
-description = ""
+version = "0.0.0" # for poetry-dynamic-versioning
+description = "ANLS: Average Normalized Levenshtein Similarity"
 authors = ["Shunsuke KITADA <shunsuke.kitada.0831@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/shunk031/ANLS"
+repository = "https://github.com/shunk031/ANLS"
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -20,3 +24,6 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 calculate-anls = "anls.cli.run:run"
+
+[tool.poetry-dynamic-versioning]
+enable = true
