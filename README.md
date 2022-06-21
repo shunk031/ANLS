@@ -3,7 +3,7 @@
 [![CI](https://github.com/shunk031/ANLS/actions/workflows/ci.yaml/badge.svg)](https://github.com/shunk031/ANLS/actions/workflows/ci.yaml)
 ![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9-blue?logo=python)
 
-This script is based on the one provided by [the Robust Reading Competition](https://rrc.cvc.uab.es/?com=introduction#) for evaluation of the InfographicVQA task.
+This python script is based on the one provided by [the Robust Reading Competition](https://rrc.cvc.uab.es/?com=introduction#) for evaluation of the InfographicVQA task.
 
 ## The ANLS metric
 
@@ -14,7 +14,9 @@ More formally, the ANLS between the net output and the ground *truth answers is 
 $$
     \mathrm{ANLS} = \frac{1}{N} \sum_{i=0}^{N} \left(\max_{j} s(a_{ij}, o_{qi}) \right),
 $$
+
 where $s(\cdot, \cdot)$ is defined as follows:
+
 $$
     s(a_{ij}, o_{qi}) = \begin{cases}
     1 - \mathrm{NL}(a_{ij}, o_{qi}), & \text{if } \mathrm{NL}(a_{ij}, o_{qi}) \lt \tau \\
@@ -24,12 +26,12 @@ $$
 
 The ANLS metric is not case sensitive, but space sensitive. For example:
 
-[![Coca-Cola_example.jpg](https://rrc.cvc.uab.es/files/Coca-Cola_example.jpg)](https://rrc.cvc.uab.es/?ch=11&com=tasks)
+[![Coca-Cola_example.jpg from https://rrc.cvc.uab.es/?ch=11&com=tasks](./.github/Coca-Cola_example.jpg)](https://rrc.cvc.uab.es/?ch=11&com=tasks)
 > Q: What soft drink company name is on the red disk?
 >
 > Possible answers:
-> - $a_{i1}$: Coca Cola
-> - $a_{i2}$: Coca Cola Company
+> - $a_{i1}$ : Coca Cola
+> - $a_{i2}$ : Coca Cola Company
 
 | Net output ($o_{qi}$) | $s(a_{ij}, o_{qi})$ | Score (ANLS) |
 |:---------------------:|:--------------------------------:|--------------:|
