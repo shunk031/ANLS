@@ -3,7 +3,7 @@
 [![CI](https://github.com/shunk031/ANLS/actions/workflows/ci.yaml/badge.svg)](https://github.com/shunk031/ANLS/actions/workflows/ci.yaml)
 ![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9-blue?logo=python)
 
-This script is based on the one provided by [the Robust Reading Competition](https://rrc.cvc.uab.es/?com=introduction#) for evaluation of the InfographicVQA task.
+This python script is based on the one provided by [the Robust Reading Competition](https://rrc.cvc.uab.es/?com=introduction#) for evaluation of the InfographicVQA task.
 
 ## The ANLS metric
 
