@@ -1,5 +1,10 @@
 from dataclasses import dataclass
-from typing import Dict, List, TypedDict
+from typing import Dict, List
+
+try:
+    from typing import TypedDict
+except ImportError:
+    from typing_extensions import TypedDict
 
 
 @dataclass
