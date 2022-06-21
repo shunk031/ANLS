@@ -1,7 +1,7 @@
 import pathlib
 
 import pytest
-from anls.common.util import load_json
+from anls.common.util import load_gold_label_json, load_submission_json
 from anls.evaluation.evaluate_json import evaluate_json
 
 
@@ -10,8 +10,8 @@ def test_evaluate_json():
     test_fixtures_dir = root_dir / "test_fixtures"
     json_dir = test_fixtures_dir / "evaluation" / "evaluate_json"
 
-    gold_label_json = load_json(json_dir / "gold_label.json")
-    submission_json = load_json(json_dir / "submission.json")
+    gold_label_json = load_gold_label_json(json_dir / "gold_label.json")
+    submission_json = load_submission_json(json_dir / "submission.json")
 
     results = evaluate_json(
         gold_label_json=gold_label_json,
