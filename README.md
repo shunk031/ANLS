@@ -30,8 +30,8 @@ The ANLS metric is not case sensitive, but space sensitive. For example:
 > Q: What soft drink company name is on the red disk?
 >
 > Possible answers:
-> - $a_{i1}$: Coca Cola
-> - $a_{i2}$: Coca Cola Company
+> - $a_{i1}$ : Coca Cola
+> - $a_{i2}$ : Coca Cola Company
 
 | Net output ($o_{qi}$) | $s(a_{ij}, o_{qi})$ | Score (ANLS) |
 |:---------------------:|:--------------------------------:|--------------:|
