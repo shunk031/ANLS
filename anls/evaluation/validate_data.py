@@ -96,11 +96,12 @@ def validate_data_from_files(
     gold_label_file_path: pathlib.Path,
     submission_file_path: pathlib.Path,
 ) -> None:
-    from anls.common.util import load_json
+    from anls.common.util import load_gold_label_json, load_submission_json
 
-    gold_label_json = load_json(gold_label_file_path)
-    submission_json = load_json(submission_file_path)
+    gold_label_json = load_gold_label_json(gold_label_file_path)
+    submission_json = load_submission_json(submission_file_path)
+
     validate_data(
-        gold_label_json=gold_label_json,  # type: ignore
-        submission_json=submission_json,  # type: ignore
+        gold_label_json=gold_label_json,
+        submission_json=submission_json,
     )

@@ -21,14 +21,14 @@ def evaluate_json_from_files(
     question_ids_to_exclude: Optional[List[int]] = None,
 ) -> EvalResult:
 
-    from anls.common.util import load_json
+    from anls.common.util import load_gold_label_json, load_submission_json
 
-    gold_label_json = load_json(gold_label_file_path)
-    submission_json = load_json(submission_file_path)
+    gold_label_json = load_gold_label_json(gold_label_file_path)
+    submission_json = load_submission_json(submission_file_path)
 
     return evaluate_json(
-        gold_label_json=gold_label_json,  # type: ignore
-        submission_json=submission_json,  # type: ignore
+        gold_label_json=gold_label_json,
+        submission_json=submission_json,
         show_scores_per_answer_type=show_scores_per_answer_type,
         anls_threshold=anls_threshold,
         question_ids_to_exclude=question_ids_to_exclude,
@@ -53,14 +53,14 @@ def evaluate_json(
     row = 0
 
     if show_scores_per_answer_type:
-        answer_type_total_score = {x: 0 for x in ANSWER_TYPES.keys()}
-        answer_type_num_questions = {x: 0 for x in ANSWER_TYPES.keys()}
+        answer_type_total_score = {x: 0.0 for x in ANSWER_TYPES.keys()}
+        answer_type_num_questions = {x: 0.0 for x in ANSWER_TYPES.keys()}
 
-        evidence_type_total_score = {x: 0 for x in EVIDENCE_TYPES.keys()}
-        evidence_type_num_questions = {x: 0 for x in EVIDENCE_TYPES.keys()}
+        evidence_type_total_score = {x: 0.0 for x in EVIDENCE_TYPES.keys()}
+        evidence_type_num_questions = {x: 0.0 for x in EVIDENCE_TYPES.keys()}
 
-        reasoning_type_total_score = {x: 0 for x in REASONING_REQUIREMENTS.keys()}
-        reasoning_type_num_questions = {x: 0 for x in REASONING_REQUIREMENTS.keys()}
+        reasoning_type_total_score = {x: 0.0 for x in REASONING_REQUIREMENTS.keys()}
+        reasoning_type_num_questions = {x: 0.0 for x in REASONING_REQUIREMENTS.keys()}
 
     for gt_object in gold_label_json["data"]:
 
@@ -74,22 +74,6 @@ def evaluate_json(
 
         else:
             info = ""
-            # values = []
-            # for answer in gt_object["answers"]:
-            #     # preprocess both the answers - gt and prediction
-            #     gt_answer = " ".join(answer.strip().lower().split())
-            #     det_answer = " ".join(det_object["answer"].strip().lower().split())
-
-            #     # dist = levenshtein_distance(answer.lower(), det_object['answer'].lower())
-            #     dist = levenshtein_distance(gt_answer, det_answer)
-            #     length = max(len(answer.upper()), len(det_object["answer"].upper()))
-            #     values.append(0.0 if length == 0 else float(dist) / float(length))
-
-            # question_result = 1.0 - min(values)
-
-            # # if question_result < evaluationParams.anls_threshold:
-            # if question_result < anls_threshold:
-            #     question_result = 0
             question_result = anls_score(
                 prediction=det_object["answer"],
                 gold_labels=gt_object["answers"],
@@ -99,15 +83,15 @@ def evaluate_json(
             total_score += question_result
 
             if show_scores_per_answer_type:
-                for q_type in gt_object["answer_type"]:
+                for q_type in gt_object["answer_type"]:  # type: ignore
                     answer_type_total_score[q_type] += question_result
                     answer_type_num_questions[q_type] += 1
 
-                for q_type in gt_object["evidence"]:
+                for q_type in gt_object["evidence"]:  # type: ignore
                     evidence_type_total_score[q_type] += question_result
                     evidence_type_num_questions[q_type] += 1
 
-                for q_type in gt_object["operation/reasoning"]:
+                for q_type in gt_object["operation/reasoning"]:  # type: ignore
                     reasoning_type_total_score[q_type] += question_result
                     reasoning_type_num_questions[q_type] += 1
 
@@ -121,7 +105,7 @@ def evaluate_json(
         row = row + 1
 
     method_metrics = MethodMetrics(
-        score=0
+        score=0.0
         if len(gold_label_json["data"]) == 0
         else total_score / (len(gold_label_json["data"]) - len(question_ids_to_exclude))
     )
