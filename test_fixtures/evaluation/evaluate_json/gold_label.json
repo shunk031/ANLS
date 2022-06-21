@@ -1,0 +1,67 @@
+{
+    "dataset_name": "foo",
+    "dataset_version": "1.0",
+    "dataset_split": "train",
+    "data": [
+        {
+            "questionId": 1,
+            "question": "foo",
+            "image_local_name": "bar",
+            "image_url": "https://example.com",
+            "ocr_output_file": "path_to_ocr_file",
+            "answers": [
+                "Coca Cola",
+                "Coca Cola Company"
+            ],
+            "data_split": "train"
+        },
+        {
+            "questionId": 2,
+            "question": "foo",
+            "image_local_name": "bar",
+            "image_url": "https://example.com",
+            "ocr_output_file": "path_to_ocr_file",
+            "answers": [
+                "Coca Cola",
+                "Coca Cola Company"
+            ],
+            "data_split": "train"
+        },
+        {
+            "questionId": 3,
+            "question": "foo",
+            "image_local_name": "bar",
+            "image_url": "https://example.com",
+            "ocr_output_file": "path_to_ocr_file",
+            "answers": [
+                "Coca Cola",
+                "Coca Cola Company"
+            ],
+            "data_split": "train"
+        },
+        {
+            "questionId": 4,
+            "question": "foo",
+            "image_local_name": "bar",
+            "image_url": "https://example.com",
+            "ocr_output_file": "path_to_ocr_file",
+            "answers": [
+                "Coca Cola",
+                "Coca Cola Company"
+            ],
+            "data_split": "train"
+        },
+        {
+            "questionId": 5,
+            "question": "foo",
+            "image_local_name": "bar",
+            "image_url": "https://example.com",
+            "ocr_output_file": "path_to_ocr_file",
+            "answers": [
+                "Coca Cola",
+                "Coca Cola Company"
+            ],
+            "data_split": "train"
+        }
+    ]
+}

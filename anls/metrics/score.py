@@ -1,10 +1,10 @@
 from typing import List
 
-from anls.dist import normalized_levenshtein_distance as nl
+from anls.metrics.dist import normalized_levenshtein_distance as NL
 
 
 def similatiry_function(prediction: str, gold_label: str, threshold: float) -> float:
-    nl_score = nl(prediction, gold_label)
+    nl_score = NL(prediction, gold_label)
     return 1 - nl_score if nl_score < threshold else 0.0
 
 
