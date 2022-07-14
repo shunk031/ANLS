@@ -8,7 +8,9 @@ def similatiry_function(prediction: str, gold_label: str, threshold: float) -> f
     return 1 - nl_score if nl_score < threshold else 0.0
 
 
-def anls_score(prediction: str, gold_labels: List[str], threshold: float) -> float:
+def anls_score(
+    prediction: str, gold_labels: List[str], threshold: float = 0.5
+) -> float:
 
     # not case sensitive, but space sensitive
     y_pred = " ".join(prediction.strip().lower().split())
