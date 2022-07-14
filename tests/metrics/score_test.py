@@ -11,6 +11,20 @@ from anls.metrics.dist import normalized_levenshtein_distance as NL
         ("Coca cola", 1.00, 0.53),
         ("Cola", 0.44, 0.23),
         ("Cat", 0.22, 0.12),
+        #
+        # with unexpected spaces
+        (" The Coca", 0.44, 0.29),
+        (" CocaCola", 0.89, 0.47),
+        (" Coca cola", 1.00, 0.53),
+        (" Cola", 0.44, 0.23),
+        (" Cat", 0.22, 0.12),
+        #
+        # with more unexpected spaces
+        (" The    Coca ", 0.44, 0.29),
+        (" CocaCola    ", 0.89, 0.47),
+        (" Coca   cola ", 1.00, 0.53),
+        ("     Cola    ", 0.44, 0.23),
+        ("   Cat       ", 0.22, 0.12),
     ),
 )
 def test_sim(net_output: str, expected_ai1: float, expected_ai2: float) -> None:
@@ -35,6 +49,20 @@ def test_sim(net_output: str, expected_ai1: float, expected_ai2: float) -> None:
         ("Coca cola", 1.00),
         ("Cola", 0.00),
         ("Cat", 0.00),
+        #
+        # with unexpected spaces
+        (" The Coca", 0.00),
+        (" CocaCola", 0.89),
+        (" Coca cola", 1.00),
+        (" Cola", 0.00),
+        (" Cat", 0.00),
+        #
+        # with more unexpected spaces
+        (" The    Coca ", 0.00),
+        ("   CocaCola  ", 0.89),
+        (" Coca    cola", 1.00),
+        ("    Cola     ", 0.00),
+        ("   Cat       ", 0.00),
     ),
 )
 def test_anls_score(net_output: str, expected_score: float) -> None:
